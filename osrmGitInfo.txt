@@ -1,0 +1,48 @@
+commit 41f9d4dc45f017bbea2a407005c537e06b62c681
+Merge: a49390af2 1e70b645e
+Author: Ben Taylor <bentaylortheonly@gmail.com>
+Date:   Sat Dec 25 16:48:04 2021 +0000
+
+    Merge remote-tracking branch 'theirs/master'
+
+commit a49390af2571d58110fdee255951adadc8d8fde0
+Author: Ben Taylor <bentaylortheonly@gmail.com>
+Date:   Thu Dec 23 15:34:03 2021 +0000
+
+    don't add cors header (nginx proxy can do it)
+
+commit 1e70b645e480946dad313b67f6a7d331baecfe3c
+Author: Michael Bell <michael@mjjbell.com>
+Date:   Fri Jun 18 00:05:08 2021 +0100
+
+    Fix generation of NodeJS API documentation
+    
+    NodeJS API docs are out of sync with NodeJS C++ wrapper documentation
+    due to the doc build breaking back in #4043.
+    
+    The commit fixes the Node dev dependencies such that `npm run docs`
+    works again and re-enables the check in CI.
+
+commit 04c2167c2d8f64f40739ad9b03cfe4f90624b7e0
+Author: Michael Bell <michael@mjjbell.com>
+Date:   Fri Oct 22 12:00:07 2021 +0100
+
+    Fix for_each_indexed util function
+    
+    - Fix typo in util function name for_each_indexed.
+    - Use the overloaded functions for_each_indexed and for_each_pair
+      with a container argument where possible to improve readability.
+
+commit 2c81083406b996f1a28bb0433262f062f401728d
+Author: Michael Bell <michael@mjjbell.com>
+Date:   Sat Dec 11 16:52:53 2021 +0000
+
+    Fix CI 32-bit build
+    
+    A recent change to the Ubuntu Focal CI worker - either a CMake upgrade,
+    or default installation of the libexpat-dev library - leads to the
+    32-bit expat library to not be found by CMake.
+    
+    FindPackage(EXPAT) finds the library via pkg-config, so the fix is
+    to explicitly include the i386 pkg-config directory in the
+    PKG_CONFIG_PATH environment variable list.
