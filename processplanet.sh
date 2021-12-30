@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# pass the FULL path of the file, not relative! it accesses it from subdirs!
+
 set -e
 set -x
 
@@ -24,7 +27,7 @@ for letter in A B C D E F; do
     mkdir $letter"_parts"
     (
         cd $letter"_parts"
-        split -b 1000000 ../$letter.tar.gz
+        split -b 10000000 -a 5 ../$letter.tar.gz
         rm ../$letter.tar.gz
         aws s3 rm --recursive s3://osrmtransfer1/$letter"_parts"
         aws s3 sync . s3://osrmtransfer1/$letter"_parts"
