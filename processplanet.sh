@@ -14,11 +14,11 @@ for letter in A B C D E F; do
     (
         cd $letter #extract arranges the files in the same directory as the .osm.pbf file, no matter what directory we're currently in
         
-        osmosis --read-pbf file="$1" --bounding-polygon file=~/Projects/polymaker/$letter.poly --write-pbf file="$letter.osm.pbf"
+        osmosis --read-pbf file="$1" --bounding-polygon file=/bigdisk/polymaker/$letter.poly --write-pbf file="$letter.osm.pbf"
         #cp $1 $letter.osm.pbf (small, e.g. liechtenstein, monaco etc, to avoid extract not finding any streets)
 
-        ~/Projects/osrm-backend/build/osrm-extract $letter.osm.pbf -p ~/Projects/osrm-backend/profiles/bicycle.lua
-        ~/Projects/osrm-backend/build/osrm-contract $letter.osrm
+        /bigdisk/osrm-backend/build/osrm-extract $letter.osm.pbf -p /bigdisk/osrm-backend/profiles/bicycle.lua
+        /bigdisk/osrm-backend/build/osrm-contract $letter.osrm
         rm $letter.osm.pbf
         tar -zcvf ../$letter.tar.gz *
     )
