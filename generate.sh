@@ -10,10 +10,10 @@ mkdir /bigdisk
 mount /dev/nvme1n1 /bigdisk
 apt-get update
 
-apt -y install build-essential git cmake pkg-config libbz2-dev libstxxl-dev libstxxl1v5 libxml2-dev libzip-dev libboost-all-dev lua5.2 liblua5.2-dev libtbb-dev libluabind-dev libluabind0.9.1d1 awscli
+apt -y install build-essential git cmake pkg-config libbz2-dev libstxxl-dev libstxxl1v5 libxml2-dev libzip-dev libboost-all-dev lua5.2 liblua5.2-dev libtbb-dev libluabind-dev libluabind0.9.1d1 awscli osmosis
 
-aws configure set aws_access_key_id AKIAVI2BFBSAV4VPSTXO
-aws configure set aws_secret_access_key 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
+aws configure set aws_access_key_id <access key>
+aws configure set aws_secret_access_key <secret key>
 
 cd /bigdisk
 
